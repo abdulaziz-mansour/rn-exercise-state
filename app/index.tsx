@@ -5,10 +5,17 @@ export default function Index() {
   const [counter, setCounter] = useState(0);
 
   function increase() {
-    setCounter(counter + 1);
+    setCounter(counter + 2);
   }
+
   function decrease() {
-    setCounter(counter - 1);
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+  }
+
+  function reset() {
+    setCounter(0);
   }
 
   // 1️⃣ TODO: Create a function named decrease
@@ -20,7 +27,8 @@ export default function Index() {
       <Text style={styles.text}>{counter}</Text>
 
       {/* 2️⃣ Add onPress and connect it to the decrease function */}
-      <Button title="Decrease"onPress={decrease}/>
+      <Button title="Decrease" onPress={decrease} />
+      <Button title="reset" color={"red"} onPress={reset} />
     </View>
   );
 }
